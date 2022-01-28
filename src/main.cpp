@@ -2,6 +2,7 @@
 #include "system.h"
 
 int main() {
+  //Testing clone
   System system;
   NCursesDisplay::Display(system);
 }
