@@ -4,7 +4,7 @@
 #include "linux_parser.h"
 int main() {
   //Testing clone
-  std::cout << LinuxParser::RunningProcesses() << std::endl;
+  std::cout << LinuxParser::UpTime(1) << std::endl;
   System system;
   //NCursesDisplay::Display(system);
 }
