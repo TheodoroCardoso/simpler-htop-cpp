@@ -129,6 +129,29 @@ vector<string> LinuxParser::CpuUtilization() {
   return res; 
 }
 
+// Function overload to get the cpu utilization for each process
+vector<string> LinuxParser::CpuUtilization(int pid) { 
+  string line, value;
+  vector<string> res;
+  string pid_dir = "/" + std::to_string(pid) + "/";
+  int counter = 0;
+  std::ifstream filestream(kProcDirectory + pid_dir + kStatFilename);
+  if (filestream.is_open()) {
+      while (std::getline(filestream, line)) {
+        std::istringstream linestream(line);
+        while (linestream >> value) {
+          if(counter > 12 && counter < 17) res.emplace_back(value);
+          else if (counter > 20) {
+            res.emplace_back(value);
+            break;
+          }
+          counter++;
+        }
+      }
+  }
+  return res; 
+}
+
 // Read and return the total number of processes
 int LinuxParser::TotalProcesses() {
   string line, key, value;
