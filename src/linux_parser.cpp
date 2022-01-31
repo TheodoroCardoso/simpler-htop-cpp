@@ -11,7 +11,7 @@ using std::string;
 using std::to_string;
 using std::vector;
 
-// DONE: An example of how to read data from the filesystem
+// An example of how to read data from the filesystem
 string LinuxParser::OperatingSystem() {
   string line;
   string key;
@@ -34,7 +34,7 @@ string LinuxParser::OperatingSystem() {
   return value;
 }
 
-// DONE: An example of how to read data from the filesystem
+// An example of how to read data from the filesystem
 string LinuxParser::Kernel() {
   string os, kernel, version;
   string line;
@@ -47,7 +47,6 @@ string LinuxParser::Kernel() {
   return kernel;
 }
 
-// BONUS: Update this to use std::filesystem
 vector<int> LinuxParser::Pids() {
   vector<int> pids;
   DIR* directory = opendir(kProcDirectory.c_str());
@@ -115,7 +114,7 @@ long LinuxParser::IdleJiffies() { return 0; }
 
 // Read and return CPU utilization
 vector<string> LinuxParser::CpuUtilization() { 
-  // Acess files to parse the data
+  // Acess files to parse the data, the actual calculation will be done on the caller side
   string line, value;
   vector<string> res;
   std::ifstream filestream(kProcDirectory + kStatFilename);
