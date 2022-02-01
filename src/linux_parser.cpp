@@ -83,7 +83,7 @@ float LinuxParser::MemoryUtilization() {
       }
     }
   }
-  return 100 * (mem_total - mem_free) / mem_total;
+  return (mem_total - mem_free) / mem_total;
 }
 
 // Read and return the system uptime
@@ -140,10 +140,7 @@ vector<string> LinuxParser::CpuUtilization(int pid) {
         std::istringstream linestream(line);
         while (linestream >> value) {
           if(counter > 12 && counter < 17) res.emplace_back(value);
-          else if (counter > 20) {
-            res.emplace_back(value);
-            break;
-          }
+          else if (counter >= 17) break;
           counter++;
         }
       }
@@ -161,7 +158,7 @@ int LinuxParser::TotalProcesses() {
       if (line_counter++ > 5) {
         std::istringstream linestream(line);
         while (linestream >> key >> value) {
-          if (key == "processes") return std::stof(value);
+          if (key == "processes") return std::stoi(value);
         }
       }
     }
@@ -179,7 +176,7 @@ int LinuxParser::RunningProcesses() {
       if (line_counter++ > 6) {
         std::istringstream linestream(line);
         while (linestream >> key >> value) {
-          if (key == "procs_running") return std::stof(value);
+          if (key == "procs_running") return std::stoi(value);
         }
       }
     }
@@ -261,7 +258,7 @@ long LinuxParser::UpTime(int pid) {
     while (std::getline(filestream, line)) {
       std::istringstream linestream(line);
       while (linestream >> value) {
-        if (counter++ > 20) return LinuxParser::UpTime() - std::stol(value);
+        if (counter++ > 20) return UpTime() - std::stol(value) / sysconf(_SC_CLK_TCK);
       }
     }
   }
