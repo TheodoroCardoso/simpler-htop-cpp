@@ -1,22 +1,13 @@
-# CppND-System-Monitor
+# C++ Nanodegree System Monitor
 
-Starter code for System Monitor Project in the Object Oriented Programming Course of the [Udacity C++ Nanodegree Program](https://www.udacity.com/course/c-plus-plus-nanodegree--nd213). 
-
-Follow along with the classroom lesson to complete the project!
+The project in this repository is result of the second project of the [Udacity C++ Nanodegree Program](https://www.udacity.com/course/c-plus-plus-nanodegree--nd213). The goal was to create a system monitor for the Linux Operating System similar to hptop with the objective of testing and practicing what was taught at the Object Oriented Programming (OOP) course of the program.
 
 ![System Monitor](images/monitor.png)
 
-## Udacity Linux Workspace
-[Udacity](https://www.udacity.com/) provides a browser-based Linux [Workspace](https://engineering.udacity.com/creating-a-gpu-enhanced-virtual-desktop-for-udacity-497bdd91a505) for students. 
+# CppND-System-Monitor Starter Code
 
-You are welcome to develop this project on your local machine, and you are not required to use the Udacity Workspace. However, the Workspace provides a convenient and consistent Linux development environment we encourage you to try.
-
-## ncurses
-[ncurses](https://www.gnu.org/software/ncurses/) is a library that facilitates text-based graphical output in the terminal. This project relies on ncurses for display output.
-
-Within the Udacity Workspace, `.student_bashrc` automatically installs ncurses every time you launch the Workspace.
-
-If you are not using the Workspace, install ncurses within your own Linux environment: `sudo apt install libncurses5-dev libncursesw5-dev`
+Udacity provides a starter code that can be found at: https://github.com/udacity/CppND-System-Monitor-Project-Updated.git.
+If you would like to try this project out by yourself, have a look at Udacity's own website and/or starter code repository. In case you would like to verify my solution works, and modify it, please feel free to continue reading and follow the instructions.
 
 ## Make
 This project uses [Make](https://www.gnu.org/software/make/). The Makefile has four targets:
@@ -27,15 +18,10 @@ This project uses [Make](https://www.gnu.org/software/make/). The Makefile has f
 
 ## Instructions
 
-1. Clone the project repository: `git clone https://github.com/udacity/CppND-System-Monitor-Project-Updated.git`
+1. First, make sure you have installed [ncurses](https://www.gnu.org/software/ncurses/), which is a library that facilitates text-based graphical output in the terminal. This project relies on ncurses for display output. You can install ncurses within your own Linux environment: `sudo apt install libncurses5-dev libncursesw5-dev`
 
-2. Build the project: `make build`
+2. Clone the project repository: `git clone https://github.com/TheodoroCardoso/simpler-htop-cpp.git`
 
-3. Run the resulting executable: `./build/monitor`
-![Starting System Monitor](images/starting_monitor.png)
+3. Build the project: `make build`
 
-4. Follow along with the lesson.
-
-5. Implement the `System`, `Process`, and `Processor` classes, as well as functions within the `LinuxParser` namespace.
-
-6. Submit!
+4. Run the resulting executable: `./build/monitor`
